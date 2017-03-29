@@ -1,0 +1,16 @@
+downloader-replies:
+ build: ./downloader-replies
+ volumes:
+   - ./downloader-replies:/opt
+   - ./libs:/opt/libs
+ command: python -u /opt/algoritmoBusqueda.py
+ restart: always
+
+
+downloader-streaming:
+ build: ./downloader-streaming
+ volumes:
+   - ./downloader-streaming:/opt
+   - ./libs:/opt/libs
+ command: python -u /opt/twitterStream.py
+ restart: always
