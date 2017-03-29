@@ -40,8 +40,8 @@ def doTheHardWork(data,queue,minion):
 credentials = {}
 filename = os.path.join('/opt/libs', 'key_mongo.py')
 exec(open(filename).read(), credentials)
-tweetRepository = TweetRepository.TweetRepository(credentials["dbcoll"],credentials["dbhost"],credentials["dbuser"],credentials["dbpass"],credentials["dbport"],credentials["dbdb"])
-otherClient = MongoClient('mongodb://'+credentials["dbuser"]+':'+credentials["dbpass"]+'@'+credentials["dbhost"]+':'+credentials["dbport"]+'/'+credentials["dbdb"])
+tweetRepository = TweetRepository.TweetRepository(credentials["dbcoll"],credentials["dbdb"],credentials["mongostring"])
+otherClient = MongoClient(credentials["mongostring"])
 krypton_db = otherClient[credentials["dbdb"]]
 ids_coll = krypton_db['tweets_ids_in_reply_to_status']
 #-----------------------------------------------------------------------

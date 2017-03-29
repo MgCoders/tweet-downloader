@@ -14,11 +14,8 @@ class Repository(object):
     Clase para operaciones con colecciones de datas.
     """
     
-    def __init__(self,dbcoll,dbhost='mongodb',dbuser=None,dbpassword=None,dbport='27017',dbdb='krypton'):
-        if dbuser:
-        	self.client = MongoClient('mongodb://'+dbuser+':'+dbpassword+'@'+dbhost+':'+dbport+'/'+dbdb)
-        else:
-        	self.client = MongoClient('mongodb://'+dbhost+':'+dbport+'/'+dbdb)
+    def __init__(self,dbcoll,dbdb,mongostring):
+        self.client = MongoClient(mongostring)
         self.db_name = dbdb
         self.data_coll_name = dbcoll
         self.entity_coll_name = "entidades-candidatas"

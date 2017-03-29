@@ -24,7 +24,7 @@ class TweetStreamer(TwythonStreamer):
 credentials = {}
 filename = os.path.join('/opt/libs', 'key_mongo.py')
 exec(open(filename).read(), credentials)
-tweetRepository = TweetRepository.TweetRepository(credentials["dbcoll"],credentials["dbhost"],credentials["dbuser"],credentials["dbpass"],credentials["dbport"],credentials["dbdb"])
+tweetRepository = TweetRepository.TweetRepository(credentials["dbcoll"],credentials["dbdb"],credentials["mongostring"])
 
 #-----------------------------------------------------------------------
 # load track words, space is and, comma is or 

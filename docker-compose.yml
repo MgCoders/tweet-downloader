@@ -4,6 +4,8 @@ downloader-replies:
    - ./downloader-replies:/opt
    - ./libs:/opt/libs
  command: python -u /opt/algoritmoBusqueda.py
+ links:
+   - downloader-mongo
  restart: always
 
 
@@ -13,4 +15,12 @@ downloader-streaming:
    - ./downloader-streaming:/opt
    - ./libs:/opt/libs
  command: python -u /opt/twitterStream.py
+ links:
+   - downloader-mongo
  restart: always
+ 
+
+downloader-mongo:
+  image: tutum/mongodb:3.2
+  environment:
+    - AUTH="no"
