@@ -10,3 +10,12 @@ siguiendo el esquema de libs/\_key_twitter_1.py
 
 ## Claves Mongo
 Es necesario setear el nombre de la colección y el string de conexión a mongo en el archivo libs/key_mongo.py siguiendo el esquema de libs/\_key_mongo.py
+
+## Ejecución
+Es necesario contar con docker y docker-compose instalados.
+
+Para ejecutar la descarga-streaming:
+* docker-compose up -d downloader-streaming
+
+Para ejecutar la descarga de replies:
+* docker-compose up -d downloader-replies
